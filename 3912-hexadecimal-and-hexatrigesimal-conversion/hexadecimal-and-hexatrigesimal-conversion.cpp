@@ -11,13 +11,11 @@ public:
         int n1 = n*n;
         int n2 = n*n*n;
         string s1 = "";
-        if(n2==0) s1 = "0";
         while(n1>0){
             s1 = map[n1%16]+s1;
             n1/=16;
         }
         string s2 = "";
-        if(n2 == 0) s2 = "0";
         while(n2>0){
             s2 = map[n2%36]+s2;
             n2/=36;
