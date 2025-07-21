@@ -1,6 +1,6 @@
 class Solution {
 public:
-    double calcPow(double x,int n){
+    double calcPow(double x,long long n){
         if(n==0) return 1;
         double t = myPow(x,n/2);
         if(n&1){
@@ -9,13 +9,11 @@ public:
         return t*t;
     }
     double myPow(double x, int n) {
+        long long ne = n;
         if(n<0){
             x = (1/x);
-            if (n == INT_MIN) {
-                return x * calcPow(x, INT_MAX);
-            }
-            n = abs(n);
+            ne = - ne;
         }
-        return calcPow(x,n);
+        return calcPow(x,ne);
     }
 };
