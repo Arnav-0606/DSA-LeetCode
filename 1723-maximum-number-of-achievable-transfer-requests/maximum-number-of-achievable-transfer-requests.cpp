@@ -12,12 +12,9 @@ public:
         return;
         }
         f(i+1,curr,netChange,reqs);
-        vector<int>t=reqs[i];
-        netChange[t[0]]--;
-        netChange[t[1]]++;
+        netChange[reqs[i][0]]--;
+        netChange[reqs[i][1]]++;
         f(i+1,curr+1,netChange,reqs);
-        // netChange[t[0]]++;
-        // netChange[t[1]]--;       
     }
     int maximumRequests(int n, vector<vector<int>>& requests) {
         vector<int>netChange(n,0);
