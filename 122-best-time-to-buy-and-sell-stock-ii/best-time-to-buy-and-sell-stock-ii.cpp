@@ -1,24 +1,14 @@
 class Solution {
 public:
-    int f(int i,vector<int>&prices,int StockHold,vector<vector<int>>&dp){
-        if(i==prices.size()){
-            return 0;
-        }
-        if(dp[i][StockHold]!=-1){
-            return dp[i][StockHold];
-        }
-        int ans = INT_MIN;
-        if(StockHold){
-            ans = prices[i]+ f(i+1,prices,0,dp);        
-        }
-        else{
-            ans = -prices[i]+f(i+1,prices,1,dp);
-        }
-        return dp[i][StockHold] = max(ans,f(i+1,prices,StockHold,dp));
-    }
     int maxProfit(vector<int>& prices) {
         int n = prices.size();
         vector<vector<int>>dp(n,vector<int>(2,-1));
-        return f(0,prices,0,dp);
+        dp[0][0] = 0;
+        dp[0][1] = - prices[0];
+        for(int i =1;i<n;i++){
+            dp[i][0] = max(dp[i-1][0],prices[i]+dp[i-1][1]);
+            dp[i][1] = max(dp[i-1][1],-prices[i]+dp[i-1][0]);
+        }
+        return dp[n-1][0];
     }
 };
