@@ -2,9 +2,14 @@ class Solution {
 public:
     int missingNumber(vector<int>& nums) {
         int n = nums.size();
-        
-        long long exp = (n * (n+1))/2;
-        long long act = accumulate(nums.begin(),nums.end(),0);
-        return exp-act;
+        for(int i=0;i<n;i++){
+            while(nums[i]!=i and nums[i]!=n){
+                swap(nums[i],nums[nums[i]]);
+            }
+        }
+        for(int i=0;i<n;i++){
+            if(nums[i]==n) return i;
+        }
+        return n;
     }
 };
