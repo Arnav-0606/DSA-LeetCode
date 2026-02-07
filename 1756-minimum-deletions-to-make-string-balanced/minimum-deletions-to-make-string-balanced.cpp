@@ -10,12 +10,10 @@ public:
             b[i] = bc;
             if(s[i]=='b') bc++;
         }
-        if(bc==n) return 0;
         for(int i=n-1;i>=0;i--){
             a[i] = ac;
             if(s[i]=='a') ac++;
         }
-        if(ac==n) return 0;
         for(int i=0;i<n;i++){
             if(s[i]=='a') ans = min(ans,a[i]+b[i]);
         }
