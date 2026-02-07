@@ -2,7 +2,6 @@ class Solution {
 public:
     int minimumDeletions(string s) {
         int n = s.size();
-        if(n==1) return 0;
         vector<int>a(n);
         vector<int>b(n);
         int ac=0,bc=0,ans=n;
