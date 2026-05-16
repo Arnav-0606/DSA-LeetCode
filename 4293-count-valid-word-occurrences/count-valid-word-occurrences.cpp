@@ -16,11 +16,16 @@ public:
                 word += s[i];
             }
             else{
-                mp[word]++;
-                word = "";
+                if(word != ""){
+                    mp[word]++;
+                    word = "";
+                }
             }
         }
-        mp[word]++;
+        if(word != ""){
+            mp[word]++;
+            word = "";
+        }
         vector<int>ans;
         for(int i=0;i<queries.size();i++){
             ans.push_back(mp[queries[i]]);
