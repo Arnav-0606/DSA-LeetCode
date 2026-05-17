@@ -5,7 +5,6 @@ public:
     double med;
 
     MedianFinder() {
-        med = INT_MAX;
     }
     
     void addNum(int num) {
