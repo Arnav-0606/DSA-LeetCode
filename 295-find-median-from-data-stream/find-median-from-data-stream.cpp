@@ -5,26 +5,23 @@ public:
     double med;
 
     MedianFinder() {
-        med = INT_MAX;   
+        med = INT_MAX;
     }
     
     void addNum(int num) {
-        med = findMedian();
-        if(med==INT_MAX){
+        if(l.empty()){
             l.push(num);
-            med = num;
-            return;                        
+            return;
         }
+        med = findMedian();
         if(num<=med){
             if(l.size()==r.size()){
                 l.push(num);
-                med = l.top();
             }
             else{
                 l.push(num);
                 r.push(l.top());
                 l.pop();
-                med = (l.top()+r.top())/2.0;
             }
 
         }
@@ -33,18 +30,21 @@ public:
                 r.push(num);
                 l.push(r.top());
                 r.pop();
-                med = l.top();
             }
             else{
                 r.push(num);
-                med = (l.top()+r.top())/2.0;
             }
         }
+   
     }
     
     double findMedian() {
-        return med;
-        
+        if(l.size()==r.size()){
+            return ((l.top()+r.top())/2.0);
+        }
+        else{
+            return l.top();
+        }
     }
 };
 
