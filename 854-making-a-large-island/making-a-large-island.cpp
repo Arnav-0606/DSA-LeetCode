@@ -2,11 +2,13 @@ class Solution {
 public:
     int dx[4] = {0,-1,0,1};
     int dy[4] = {-1,0,1,0};
+    int mxArea = 0;
     void dfs(auto & grid,int i,int j,int n,int k,auto & mp){
         if(i<0 or i>=n or j<0 or j>=n) return;
         if(grid[i][j]!=1) return;
         grid[i][j] = k;
         mp[k]++;
+        mxArea = max(mxArea,mp[k]);
         for(int u=0;u<4;u++){
             int a = i+ dx[u];
             int b = j + dy[u];
@@ -16,7 +18,6 @@ public:
     int largestIsland(vector<vector<int>>& grid) {
         int k =2;
         map<int,int>mp;
-        int mxArea = 0;
         int n = grid.size();
         for(int i=0;i<n;i++){
             for(int j=0;j<n;j++){
@@ -44,11 +45,6 @@ public:
                 }
             }
         }
-        for(auto [k,v]:mp){
-            mxArea = max(mxArea,v);
-        }
         return mxArea;
-
-        
     }
 };
