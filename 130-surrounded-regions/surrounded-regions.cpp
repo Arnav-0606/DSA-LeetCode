@@ -4,20 +4,17 @@ public:
     int dy[4] = {0,1,0,-1};
 
     void f(int i,int j,auto &vis,auto &board,int n,int m){
-        if(i<0 || i>=n || j<0 || j>=m) return;
-        if(vis[i][j] || board[i][j]=='X') return;
-
+        if(i<0 or i>=n or j<0 or j>=m) return;
+        if(board[i][j]=='X' or vis[i][j]) return;
         vis[i][j] = true;
-
         for(int k=0;k<4;k++){
             f(i+dx[k], j+dy[k], vis, board, n, m);
         }
     }
 
     void dfs(int i,int j,auto &vis,auto &board,int n,int m){
-        if(i<0 || i>=n || j<0 || j>=m) return;
-        if(vis[i][j] || board[i][j]=='X') return;
-
+        if(i<0 or i>=n or j<0 or j>=m) return;
+        if(board[i][j]=='X') return;
         vis[i][j] = true;
         board[i][j] = 'X';
 
