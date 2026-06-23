@@ -1,11 +1,12 @@
 class Solution {
 public:
-    int dp[11][2][11];
+    int dp[10][2][10];
     int f(int i,bool tight,int cnt,auto&digits){
         if(i==digits.size()) {
             return cnt;
         }
         if(dp[i][tight][cnt]!=-1) return dp[i][tight][cnt];
+
         int ub = (tight)? digits[i] : 9;
         int sum = 0;
         for(int k=0;k<=ub;k++){
