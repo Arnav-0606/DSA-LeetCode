@@ -1,6 +1,6 @@
 class Solution {
 public:
-    long long dp[20][10][2][2];
+    long long dp[16][10][2][2];
     long long f(int i,int last, bool tight,bool lz,string digits,int k){
         if(i==digits.size()) return 1;
         if(dp[i][last][tight][lz]!=-1) return dp[i][last][tight][lz];
