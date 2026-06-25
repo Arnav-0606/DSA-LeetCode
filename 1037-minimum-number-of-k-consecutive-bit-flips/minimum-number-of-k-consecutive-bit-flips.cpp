@@ -5,11 +5,11 @@ public:
         vector<bool>flip(n,false);
         bool fl = false;
         int ans = 0;
-        for(int i=n-1;i>=0;i--){
+        for(int i=0;i<n;i++){
             if((!fl and (nums[i]==0)) or (fl and nums[i]==1)){
                 ans++;
-                if(i-k+1<0) return -1;
-                flip[i-k+1] = true;
+                if(i+k-1>=n) return -1;
+                flip[i+k-1] = true;
                 fl = 1- fl;
             } 
             if(flip[i]){
