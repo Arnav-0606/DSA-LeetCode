@@ -5,7 +5,7 @@ public:
         long long ans = 0;
         for(int i=0;i<s.size();i++){
             if(s[i]=='1'){
-                if(lastNotTaken >= nums[i]){
+                if(lastNotTaken > nums[i]){
                     ans += lastNotTaken;
                     lastNotTaken = nums[i];
                 }
