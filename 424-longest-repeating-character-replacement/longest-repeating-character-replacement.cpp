@@ -18,9 +18,9 @@ public:
             for(int i=0;i<26;i++){
                 mx = max(mp[i],mx);
             }
-            if(ws-mx<=k) return true;
+            mn = min(ws-mx,mn);
         }
-        return false;
+        return mn<=k;
     }
     int characterReplacement(string s, int k) {
         int n = s.size();
