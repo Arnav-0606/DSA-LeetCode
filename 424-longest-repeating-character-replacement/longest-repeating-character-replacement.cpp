@@ -9,7 +9,7 @@ public:
         while(j<n){
             mp[s[j]-'A']++;
             mx = max(mx,mp[s[j]-'A']);
-            while((j-i+1)-mx >k){
+            if((j-i+1)-mx >k){
                 mp[s[i]-'A']--;
                 i++;
             }
