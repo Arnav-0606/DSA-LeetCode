@@ -49,6 +49,7 @@ public :
 	int numSimilarGroups(vector<string>&strs){
 		int n = strs.size();
 		DisjointSet ds(n);
+        int grps = n;
 		for(int i=0;i<n;i++){
 			ds.createSet(i);
 		}
@@ -57,15 +58,11 @@ public :
 		        if(ds.findSet(i)!=ds.findSet(j)){
 			        if(checkSimilar(strs[i],strs[j])){
 				    ds.unionSet(i,j);
+                    grps--;
                     }
 		        }
             }
         }
-    unordered_set<int>groups;
-    for(int i=0;i<n;i++){
-    	groups.insert(ds.findSet(i));
-    }
-    return groups.size();
-		
+        return grps;
     }
 };
